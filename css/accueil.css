@@ -1,0 +1,206 @@
+/* =====================================================
+   ACCUEIL : grand nom + lignes de code qui défilent derrière
+   ===================================================== */
+
+.masthead {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: calc(var(--hauteur-entete) + 40px) 0 110px;
+  overflow: hidden;
+}
+
+/* ----- Fond : colonnes de code (créées par js/code-defilant.js) ----- */
+
+.code-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  font-family: var(--police-code);
+  font-size: 13px;
+  line-height: 1.85;
+  pointer-events: none;
+  user-select: none;
+}
+
+.code-col {
+  flex: none;
+  width: 330px;
+  overflow: hidden;
+}
+
+/* La piste contient deux fois les mêmes lignes : elle boucle sans à-coup */
+.code-track {
+  animation: code-monte 60s linear infinite;
+  will-change: transform;
+}
+
+/* Une colonne sur deux défile vers le bas */
+.code-col:nth-child(even) .code-track {
+  animation-name: code-descend;
+}
+
+/* Vitesses différentes pour un rendu moins mécanique */
+.code-col:nth-child(3n + 1) .code-track {
+  animation-duration: 52s;
+}
+
+.code-col:nth-child(3n + 2) .code-track {
+  animation-duration: 74s;
+}
+
+@keyframes code-monte {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes code-descend {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+/* Couleurs du code : gris, mots-clés violets, valeurs bleues */
+.code-line {
+  white-space: pre;
+  color: #7f808a;
+}
+
+.code-line--commentaire {
+  color: #666771;
+  font-style: italic;
+}
+
+.code-mot-cle {
+  color: #a08af0;
+}
+
+.code-valeur {
+  color: #5c9be6;
+}
+
+/* ----- Voile : assombrit le code pour garder le nom lisible ----- */
+
+.masthead__veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      rgba(var(--gris-fond-rgb), 0.92) 0%,
+      rgba(var(--gris-fond-rgb), 0.7) 40%,
+      rgba(var(--gris-fond-rgb), 0.3) 75%,
+      rgba(var(--gris-fond-rgb), 0.5) 100%),
+    linear-gradient(to top, var(--gris-fond) 0%, transparent 35%),
+    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(var(--violet-rgb), 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 70% 90%, rgba(var(--bleu-rgb), 0.16), transparent 70%);
+}
+
+/* ----- Contenu : nom, phrase d'accroche, boutons ----- */
+
+.masthead__content {
+  position: relative;
+}
+
+.masthead__title {
+  font-size: clamp(3.6rem, 13vw, 11rem);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+
+/* Le nom de famille est seulement en contour */
+.masthead__title span {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--blanc);
+}
+
+.masthead__text {
+  max-width: 600px;
+  margin-top: 32px;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--gris-clair);
+}
+
+.masthead__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+/* ----- Indicateur « Défiler » en bas à droite ----- */
+
+.masthead__scroll {
+  position: absolute;
+  right: var(--marge-cote);
+  bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gris-texte);
+  writing-mode: vertical-rl;
+}
+
+.masthead__scroll i {
+  position: relative;
+  width: 1px;
+  height: 60px;
+  background: var(--gris-ligne);
+  overflow: hidden;
+}
+
+.masthead__scroll i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--violet);
+  animation: goutte 2s var(--courbe) infinite;
+}
+
+@keyframes goutte {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+
+/* ----- Tablette et mobile ----- */
+
+@media (max-width: 900px) {
+  .masthead__scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .masthead {
+    padding-bottom: 72px;
+  }
+
+  .masthead__title span {
+    -webkit-text-stroke-width: 1.5px;
+  }
+
+  .code-bg {
+    gap: 20px;
+    font-size: 11px;
+  }
+
+  .code-col {
+    width: 240px;
+  }
+}
+
+/* ----- Pas de défilement si l'utilisateur réduit les animations ----- */
+
+@media (prefers-reduced-motion: reduce) {
+  .code-track,
+  .masthead__scroll i::after {
+    animation: none;
+  }
+}

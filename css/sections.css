@@ -1,0 +1,466 @@
+/* =====================================================
+   SECTIONS : profil, expériences, formation,
+   compétences, certifications, contact
+   ===================================================== */
+
+.section {
+  padding: clamp(80px, 11vw, 150px) 0;
+}
+
+/* Variante avec un gris légèrement plus clair */
+.section--dark {
+  background: var(--gris-section);
+}
+
+.section__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 40px;
+  margin-bottom: 56px;
+}
+
+.section__sub {
+  max-width: 420px;
+  font-size: 1.05rem;
+  color: var(--gris-texte);
+}
+
+/* ----- Profil + chiffres clés ----- */
+
+.intro {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: end;
+  gap: 48px 80px;
+}
+
+.key-figures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: clamp(64px, 8vw, 110px);
+  border-top: 1px solid var(--gris-ligne);
+}
+
+.key-figures__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 36px 32px 0 0;
+}
+
+.key-figures__item + .key-figures__item {
+  padding-left: 32px;
+  border-left: 1px solid var(--gris-ligne);
+}
+
+.key-figures__number {
+  font-size: clamp(4rem, 9vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.key-figures__item:nth-child(1) .key-figures__number {
+  color: var(--violet);
+}
+
+.key-figures__item:nth-child(3) .key-figures__number {
+  color: var(--bleu);
+}
+
+.key-figures__desc {
+  max-width: 240px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gris-clair);
+}
+
+/* ----- Expériences (cartes) ----- */
+
+.entries {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.entry {
+  display: flex;
+  flex-direction: column;
+  background: var(--gris-fond);
+  transition: background 0.35s var(--courbe);
+}
+
+.entry:hover {
+  background: var(--gris-carte);
+}
+
+/* Bandeau coloré avec le nom de l'entreprise */
+.entry__visual {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 16 / 9;
+  padding: 22px;
+  overflow: hidden;
+}
+
+/* Quadrillage discret par-dessus le dégradé */
+.entry__visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  transition: transform 0.7s var(--courbe);
+}
+
+.entry:hover .entry__visual::before {
+  transform: scale(1.08);
+}
+
+.entry__visual span {
+  position: relative;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.entry__visual--violet {
+  background: linear-gradient(135deg, #4a3899, var(--gris-section) 85%);
+}
+
+.entry__visual--blue {
+  background: linear-gradient(135deg, #25508c, var(--gris-section) 85%);
+}
+
+.entry__visual--grey {
+  background: linear-gradient(135deg, #5b5c66, var(--gris-section) 85%);
+}
+
+.entry__content {
+  flex: 1;
+  padding: 26px 26px 18px;
+}
+
+.entry__date {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.entry__title {
+  margin-bottom: 12px;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.entry__excerpt {
+  font-size: 1rem;
+  color: var(--gris-texte);
+}
+
+.entry__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 26px;
+  padding: 18px 0 24px;
+  border-top: 1px solid var(--gris-ligne);
+  font-weight: 600;
+  color: var(--gris-clair);
+}
+
+.entry__footer .arrow {
+  color: var(--violet);
+}
+
+.entry:hover .entry__footer .arrow {
+  transform: translateX(6px);
+}
+
+/* ----- Formation ----- */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: start;
+  gap: 48px 100px;
+}
+
+.split .lead {
+  margin-top: 24px;
+}
+
+.degrees {
+  display: grid;
+  gap: 20px;
+}
+
+.degree {
+  padding: 34px;
+  background: var(--gris-section);
+  border-left: 3px solid var(--violet);
+  transition: transform 0.35s var(--courbe), background 0.35s;
+}
+
+.degree:nth-child(2) {
+  border-left-color: var(--bleu);
+}
+
+.degree:hover {
+  background: var(--gris-carte);
+  transform: translateX(8px);
+}
+
+.degree__date {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gris-texte);
+}
+
+.degree__title {
+  margin: 8px 0 10px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.degree__text {
+  color: var(--gris-clair);
+}
+
+/* ----- Compétences ----- */
+
+/* Étiquettes des langages */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chips span {
+  padding: 8px 16px;
+  border: 1px solid var(--gris-ligne);
+  border-radius: 3.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.chips span:hover {
+  border-color: var(--violet);
+  background: rgba(var(--violet-rgb), 0.12);
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.skills__col {
+  padding: clamp(26px, 3.5vw, 44px);
+  background: var(--gris-fond);
+}
+
+.skills__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Pastille de couleur devant le titre */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot--violet {
+  background: var(--violet);
+}
+
+.dot--blue {
+  background: var(--bleu);
+}
+
+.skills dl > div {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--gris-ligne);
+}
+
+.skills dt {
+  font-weight: 700;
+}
+
+.skills dd {
+  color: var(--gris-clair);
+}
+
+/* ----- Certifications (liste) ----- */
+
+.documents {
+  display: grid;
+  gap: 10px;
+}
+
+.document {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px;
+  background: var(--gris-section);
+  transition: background 0.3s var(--courbe);
+}
+
+.document:hover {
+  background: var(--violet-fonce);
+}
+
+.document__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.document__meta {
+  margin-top: 2px;
+  font-size: 0.98rem;
+  color: var(--gris-texte);
+  transition: color 0.3s;
+}
+
+.document:hover .document__meta {
+  color: var(--blanc);
+}
+
+.document__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--gris-ligne);
+  border-radius: 50%;
+  font-weight: 700;
+  color: var(--bleu);
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.document:hover .document__icon {
+  background: var(--blanc);
+  border-color: var(--blanc);
+  color: var(--violet-fonce);
+}
+
+/* ----- Contact (bandeau en bas du site) ----- */
+
+.cta-banner {
+  padding: clamp(80px, 10vw, 130px) 0;
+  background:
+    radial-gradient(ellipse 50% 80% at 100% 0%, rgba(var(--bleu-rgb), 0.28), transparent 70%),
+    linear-gradient(120deg, #3a2c7a 0%, var(--gris-section) 60%);
+}
+
+.cta-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.cta-banner .lead {
+  margin-top: 18px;
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* Adresse e-mail cliquable pour la copier */
+.copy {
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  font-family: var(--police-code);
+  font-size: 0.9rem;
+  color: var(--gris-clair);
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.copy:hover {
+  color: var(--blanc);
+}
+
+.copy__hint {
+  margin-left: 10px;
+  color: var(--bleu);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ----- Écrans moyens ----- */
+
+@media (max-width: 1080px) {
+  .entries {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----- Tablette ----- */
+
+@media (max-width: 900px) {
+  .intro,
+  .split,
+  .skills {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- Mobile ----- */
+
+@media (max-width: 640px) {
+  .entries,
+  .key-figures {
+    grid-template-columns: 1fr;
+  }
+
+  .key-figures__item,
+  .key-figures__item + .key-figures__item {
+    padding: 28px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--gris-ligne);
+  }
+
+  .skills dl > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .degree {
+    padding: 24px;
+  }
+
+  .document {
+    padding: 20px;
+  }
+}

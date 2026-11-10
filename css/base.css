@@ -1,0 +1,260 @@
+/* =====================================================
+   BASE : variables, remise à zéro, textes, boutons
+   Les valeurs à modifier souvent sont regroupées ici.
+   ===================================================== */
+
+:root {
+  /* Gris — teinte principale */
+  --gris-fond: #2e2f34;
+  --gris-fond-rgb: 46, 47, 52; /* même couleur, pour les transparences */
+  --gris-section: #38393f;
+  --gris-carte: #44454d;
+  --gris-ligne: rgba(255, 255, 255, 0.13);
+  --gris-texte: #adaeb7;
+  --gris-clair: #cfd0d6;
+  --blanc: #ffffff;
+
+  /* Violet — couleur secondaire */
+  --violet: #a48bff;
+  --violet-fonce: #6d4fe0;
+  --violet-rgb: 164, 139, 255;
+
+  /* Bleu — couleur de support */
+  --bleu: #5aa5ff;
+  --bleu-rgb: 90, 165, 255;
+
+  /* Tailles et polices */
+  --hauteur-entete: 84px;
+  --largeur-max: 1320px;
+  --marge-cote: clamp(16px, 4vw, 48px);
+  --police: "Urbanist", Arial, sans-serif;
+  --police-code: "JetBrains Mono", ui-monospace, Consolas, monospace;
+
+  /* Courbe d'animation commune */
+  --courbe: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ----- Remise à zéro ----- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--hauteur-entete);
+}
+
+body {
+  font-family: var(--police);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  background: var(--gris-fond);
+  color: var(--blanc);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+::selection {
+  background: var(--violet-fonce);
+  color: var(--blanc);
+}
+
+/* ----- Conteneur et textes communs ----- */
+
+.container {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 var(--marge-cote);
+}
+
+.h2 {
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+/* Mot mis en avant en violet */
+.hl {
+  color: var(--violet);
+}
+
+.lead {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: var(--gris-clair);
+  max-width: 640px;
+}
+
+/* Petit sur-titre bleu avec un trait violet */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 2px;
+  background: var(--violet);
+}
+
+/* ----- Boutons en pilule (remplissage au survol) ----- */
+
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0.95rem 1.75rem;
+  border: 1px solid transparent;
+  border-radius: 3.75rem;
+  font-family: var(--police);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.4s var(--courbe), border-color 0.4s var(--courbe);
+}
+
+/* Fond coloré qui glisse au survol */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--courbe);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn--primary {
+  background: var(--violet-fonce);
+  color: var(--blanc);
+}
+
+.btn--primary::before {
+  background: var(--blanc);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  color: var(--gris-fond);
+}
+
+.btn--outlined {
+  background: transparent;
+  border-color: var(--blanc);
+  color: var(--blanc);
+}
+
+.btn--outlined::before {
+  background: var(--violet-fonce);
+}
+
+.btn--outlined:hover,
+.btn--outlined:focus-visible {
+  border-color: var(--violet-fonce);
+}
+
+.btn--small {
+  padding: 0.65rem 1.3rem;
+  font-size: 0.92rem;
+}
+
+.btn--large {
+  padding: 1.2rem 2.2rem;
+  font-size: 1.1rem;
+}
+
+/* Petite flèche dessinée en CSS */
+.arrow {
+  position: relative;
+  flex: none;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.4s var(--courbe);
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.btn:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* ----- Apparition des éléments au défilement ----- */
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: opacity 0.6s linear, transform 0.9s var(--courbe);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Léger décalage entre éléments voisins (classes ajoutées par le JS) */
+.reveal--delai-1 {
+  transition-delay: 0.08s;
+}
+
+.reveal--delai-2 {
+  transition-delay: 0.16s;
+}
+
+.reveal--delai-3 {
+  transition-delay: 0.24s;
+}
+
+/* ----- Respect du réglage « réduire les animations » ----- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

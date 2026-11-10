@@ -1,0 +1,217 @@
+/* ==========================================================================
+   ACCUEIL
+   Prénom et nom en grand, avec des lignes de code qui défilent derrière.
+   Les lignes sont créées par js/code-defilant.js ; le défilement est ici.
+   ========================================================================== */
+
+
+/* ---------- Réglages de l'accueil : à modifier ici ---------- */
+
+.accueil {
+  --taille-nom: clamp(3.5rem, 11vw, 7.5rem);
+  --taille-code: 0.875rem;
+  --opacite-code: 0.42;
+
+  /* Durée d'un tour complet : plus le nombre est grand, plus c'est lent */
+  --duree-defilement-rapide: 50s;
+  --duree-defilement-moyenne: 65s;
+  --duree-defilement-lente: 80s;
+}
+
+
+/* ---------- Bloc d'accueil ---------- */
+
+.accueil {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 36rem;
+  min-height: clamp(36rem, calc(100svh - var(--hauteur-entete)), 54rem);
+  padding-block: 4rem;
+  background-color: var(--gris-tres-fonce);
+  color: var(--gris-clair);
+}
+
+
+/* ---------- Fond : colonnes de code qui défilent ---------- */
+
+.accueil__code {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding-inline: var(--marge-page);
+  opacity: var(--opacite-code);
+  /* Le code s'efface doucement en haut et en bas */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+.colonne-code {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Sur petit écran, on garde seulement deux colonnes */
+.colonne-code:nth-child(n + 3) {
+  display: none;
+}
+
+@media (min-width: 60rem) {
+  .accueil__code {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .colonne-code:nth-child(n + 3) {
+    display: block;
+  }
+}
+
+/* La piste contient deux fois les mêmes lignes : quand la première moitié
+   est sortie par le haut, l'animation recommence sans coupure visible. */
+.colonne-code__piste {
+  animation: defilement-code var(--duree-defilement-moyenne) linear infinite;
+}
+
+.colonne-code:nth-child(2) .colonne-code__piste {
+  animation-duration: var(--duree-defilement-rapide);
+}
+
+.colonne-code:nth-child(3) .colonne-code__piste {
+  animation-duration: var(--duree-defilement-lente);
+}
+
+.colonne-code:nth-child(4) .colonne-code__piste {
+  animation-duration: var(--duree-defilement-rapide);
+  animation-delay: -20s;
+}
+
+@keyframes defilement-code {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.ligne-code {
+  font-family: var(--police-code);
+  font-size: var(--taille-code);
+  line-height: 1.9;
+  white-space: pre;
+  color: var(--gris-clair);
+}
+
+.ligne-code--commentaire {
+  color: var(--gris-moyen);
+}
+
+.ligne-code--violette {
+  color: var(--violet-clair);
+}
+
+.ligne-code--bleue {
+  color: var(--bleu);
+}
+
+
+/* ---------- Texte de l'accueil ---------- */
+
+/* Halo sombre derrière les lettres pour rester lisible devant le code */
+.accueil__contenu {
+  text-shadow:
+    0 0 0.25rem var(--gris-tres-fonce),
+    0 0 0.75rem var(--gris-tres-fonce),
+    0 0 1.5rem var(--gris-tres-fonce);
+}
+
+.accueil__invite {
+  margin: 0 0 1.25rem;
+  font-family: var(--police-code);
+  font-size: 1rem;
+  color: var(--gris-clair);
+}
+
+.accueil__invite-symbole {
+  color: var(--bleu);
+}
+
+/* Curseur qui clignote comme dans un terminal */
+.accueil__curseur {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 0.25em;
+  vertical-align: text-bottom;
+  background-color: var(--violet-clair);
+  animation: clignotement-curseur 1.1s step-end infinite;
+}
+
+@keyframes clignotement-curseur {
+  50% {
+    opacity: 0;
+  }
+}
+
+.accueil__nom {
+  margin: 0;
+  font-size: var(--taille-nom);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--blanc);
+}
+
+.accueil__prenom,
+.accueil__nom-famille {
+  display: block;
+}
+
+.accueil__nom-famille {
+  color: var(--violet-clair);
+}
+
+.accueil__metier {
+  margin: 1.75rem 0 0;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-weight: 600;
+  color: var(--blanc);
+}
+
+.accueil__resume {
+  max-width: 34rem;
+  margin: 0.75rem 0 0;
+  font-size: var(--taille-texte);
+  color: var(--gris-clair);
+}
+
+.accueil__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  /* Les boutons n'ont pas besoin du halo */
+  text-shadow: none;
+}
+
+/* Fond plein derrière le bouton à contour pour qu'il reste lisible */
+.accueil__actions .bouton--contour-clair {
+  background-color: var(--gris-tres-fonce);
+}
+
+
+/* ---------- Respect du réglage « réduire les animations » ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .colonne-code__piste,
+  .accueil__curseur {
+    animation: none;
+  }
+}

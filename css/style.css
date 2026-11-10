@@ -1,0 +1,425 @@
+/* ==========================================================================
+   STYLE PRINCIPAL DU PORTFOLIO
+   Contient : variables, bases, mise en page, composants communs, pied de page
+   ========================================================================== */
+
+
+/* ---------- 1. Variables : les valeurs à modifier souvent ---------- */
+
+:root {
+  /* Teinte principale : les gris */
+  --gris-nuit: #15171b;           /* pied de page */
+  --gris-tres-fonce: #1c1f24;     /* barre de navigation, accueil, contact */
+  --gris-fonce: #272b32;          /* titres sur fond clair */
+  --gris-ardoise: #3a414c;        /* bordures sur fond sombre */
+  --gris-texte: #3f4b5b;          /* texte courant */
+  --gris-moyen: #5d6673;          /* texte secondaire */
+  --gris-clair: #aab1bb;          /* texte sur fond sombre */
+  --gris-bordure: #dbdbdb;        /* bordures et séparateurs */
+  --gris-fond: #eef0f3;           /* fond de la page */
+  --gris-surface: #f8f9fa;        /* fond des sections alternées */
+  --blanc: #ffffff;
+
+  /* Teinte secondaire : le violet */
+  --violet: #6d3fd1;
+  --violet-fonce: #5a31b3;
+  --violet-clair: #a98bff;        /* violet lisible sur fond sombre */
+  --violet-pale: #ece6fb;
+
+  /* Teinte de support : le bleu */
+  --bleu: #579af6;
+  --bleu-fonce: #2a62bd;          /* bleu lisible sur fond clair */
+  --bleu-pale: #e4eefd;
+
+  /* Couleurs transparentes */
+  --fond-entete: rgba(28, 31, 36, 0.85);
+  --bordure-sur-sombre: rgba(255, 255, 255, 0.12);
+  --bordure-claire-forte: rgba(255, 255, 255, 0.4);
+  --halo-focus: 0 0 5px rgba(102, 175, 233, 0.6);
+
+  /* Polices */
+  --police-texte: "Gilroy", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --police-code: "Cascadia Code", "Cascadia Mono", Consolas, "Courier New", monospace;
+
+  /* Tailles de texte */
+  --taille-h2: clamp(2rem, 4.4vw, 3.75rem);
+  --taille-h3: 1.5rem;
+  --taille-texte: 1.125rem;
+  --taille-texte-grand: 1.25rem;
+  --taille-petit: 0.8125rem;
+
+  /* Espacements et dimensions */
+  --largeur-conteneur: 1320px;
+  --marge-page: clamp(1.25rem, 4vw, 3rem);
+  --espace-section: clamp(5rem, 8.7vw, 7.5rem);
+  --hauteur-entete: 4.5rem;
+
+  /* Formes et animations */
+  --rayon: 4px;
+  --rayon-pilule: 30px;
+  --transition: 0.25s ease;
+}
+
+
+/* ---------- 2. Bases ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Évite que la barre de navigation cache le haut d'une section */
+  scroll-padding-top: var(--hauteur-entete);
+}
+
+body {
+  margin: 0;
+  font-family: var(--police-texte);
+  font-size: var(--taille-texte);
+  line-height: 1.6;
+  color: var(--gris-texte);
+  background-color: var(--gris-fond);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--gris-fonce);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--bleu-fonce);
+  text-underline-offset: 0.2em;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--violet);
+}
+
+/* Contour bleu visible quand on navigue au clavier */
+:focus-visible {
+  outline: 2px solid var(--bleu);
+  outline-offset: 3px;
+  box-shadow: var(--halo-focus);
+}
+
+/* Lien caché qui apparaît au clavier pour sauter la navigation */
+.lien-evitement {
+  position: absolute;
+  top: -5rem;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--violet);
+  color: var(--blanc);
+  border-radius: var(--rayon);
+}
+
+.lien-evitement:focus {
+  top: 1rem;
+  color: var(--blanc);
+}
+
+
+/* ---------- 3. Mise en page ---------- */
+
+.conteneur {
+  width: min(100% - 2 * var(--marge-page), var(--largeur-conteneur));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--espace-section);
+}
+
+.section--surface {
+  background-color: var(--gris-surface);
+}
+
+/* En-tête d'une section : surtitre + titre + introduction */
+.section__entete {
+  max-width: 46rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.section__surtitre {
+  margin: 0 0 0.75rem;
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+/* Petit clin d'œil au code : le surtitre ressemble à un commentaire */
+.section__surtitre::before {
+  content: "// ";
+  color: var(--bleu-fonce);
+}
+
+.section__titre {
+  margin: 0;
+  font-size: var(--taille-h2);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.section__introduction {
+  margin: 1.25rem 0 0;
+  font-size: var(--taille-texte-grand);
+  font-weight: 300;
+}
+
+/* Variantes pour les fonds sombres */
+.section__surtitre--clair {
+  color: var(--violet-clair);
+}
+
+.section__surtitre--clair::before {
+  color: var(--bleu);
+}
+
+.section__titre--clair {
+  color: var(--blanc);
+}
+
+/* Grilles de cartes */
+.grille-cartes {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 40rem) {
+  .grille-cartes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .grille-cartes--trois {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 75rem) {
+  .grille-cartes--quatre {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* ---------- 4. Composants communs ---------- */
+
+/* Boutons */
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--rayon);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.bouton__icone {
+  transition: transform var(--transition);
+}
+
+.bouton:hover .bouton__icone {
+  transform: translateX(4px);
+}
+
+.bouton:hover .bouton__icone--bas {
+  transform: translateY(3px);
+}
+
+.bouton--principal {
+  background-color: var(--violet);
+  color: var(--blanc);
+}
+
+.bouton--principal:hover {
+  background-color: var(--violet-fonce);
+  color: var(--blanc);
+}
+
+.bouton--contour {
+  border-color: var(--gris-moyen);
+  color: var(--gris-fonce);
+}
+
+.bouton--contour:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+}
+
+.bouton--contour-clair {
+  border-color: var(--bordure-claire-forte);
+  color: var(--blanc);
+}
+
+.bouton--contour-clair:hover {
+  border-color: var(--violet-clair);
+  color: var(--violet-clair);
+}
+
+.bouton--grand {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Bouton pas encore actif (document à venir) */
+.bouton--inactif {
+  border: 1px dashed var(--gris-clair);
+  color: var(--gris-moyen);
+  cursor: not-allowed;
+}
+
+/* Cartes */
+.carte {
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  background-color: var(--gris-surface);
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--rayon);
+  transition: border-color var(--transition);
+}
+
+.carte:hover {
+  border-color: var(--violet);
+}
+
+.section--surface .carte {
+  background-color: var(--blanc);
+}
+
+/* Étiquettes (petites pilules) */
+.liste-etiquettes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.etiquette {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--gris-fond);
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--rayon-pilule);
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  line-height: 1.5;
+  color: var(--gris-texte);
+}
+
+.etiquette--violette {
+  background-color: var(--violet-pale);
+  border-color: var(--violet-pale);
+  color: var(--violet-fonce);
+}
+
+.etiquette--bleue {
+  background-color: var(--bleu-pale);
+  border-color: var(--bleu-pale);
+  color: var(--bleu-fonce);
+}
+
+/* Repère visible pour les contenus qu'il reste à écrire */
+.badge-a-completer {
+  display: inline-block;
+  padding: 0.125rem 0.625rem;
+  border: 1px dashed var(--bleu-fonce);
+  border-radius: var(--rayon);
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  color: var(--bleu-fonce);
+}
+
+
+/* ---------- 5. Apparition des blocs au défilement ---------- */
+
+/* La classe "js-actif" est ajoutée par js/script.js :
+   sans JavaScript, tout le contenu reste visible. */
+.js-actif .a-reveler {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js-actif .a-reveler.est-visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* ---------- 6. Pied de page ---------- */
+
+.pied-de-page {
+  padding-block: 2rem;
+  background-color: var(--gris-nuit);
+  color: var(--gris-clair);
+  font-size: 0.9375rem;
+}
+
+.pied-de-page__contenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.pied-de-page__texte {
+  margin: 0;
+}
+
+.pied-de-page__liens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pied-de-page__lien {
+  color: var(--gris-clair);
+}
+
+.pied-de-page__lien:hover {
+  color: var(--blanc);
+}
+
+
+/* ---------- 7. Respect du réglage « réduire les animations » ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-actif .a-reveler {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .bouton__icone {
+    transition: none;
+  }
+}

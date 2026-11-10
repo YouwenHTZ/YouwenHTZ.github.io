@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youwen Heitz — Portfolio BTS SIO SISR</title>
+  <meta name="description" content="Portfolio de Youwen Heitz, étudiant en BTS SIO option SISR : parcours, compétences, réalisations, certifications et veille technologique.">
+  <meta name="author" content="Youwen Heitz">
+  <meta name="theme-color" content="#1c1f24">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Feuilles de style (aucun style dans le HTML) -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/accueil.css">
+  <link rel="stylesheet" href="css/sections.css">
+
+  <!-- Scripts (aucun JavaScript dans le HTML) -->
+  <script src="js/code-defilant.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <!-- ======================================================
+       BARRE DE NAVIGATION (reste collée en haut de la page)
+       ====================================================== -->
+  <header class="entete">
+    <div class="conteneur entete__contenu">
+
+      <a class="entete__logo" href="#accueil" aria-label="Youwen Heitz, retour en haut de la page">
+        <span class="entete__logo-initiales" aria-hidden="true">YH</span>
+        <span class="entete__logo-nom">Youwen Heitz</span>
+      </a>
+
+      <button class="entete__bouton-menu" id="bouton-menu" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir ou fermer le menu">
+        <span class="entete__barre"></span>
+        <span class="entete__barre"></span>
+        <span class="entete__barre"></span>
+      </button>
+
+      <nav class="menu" id="menu-principal" aria-label="Navigation principale">
+        <ul class="menu__liste">
+          <li><a class="menu__lien" href="#a-propos">À propos</a></li>
+          <li><a class="menu__lien" href="#parcours">Parcours</a></li>
+          <li><a class="menu__lien" href="#competences">Compétences</a></li>
+          <li><a class="menu__lien" href="#realisations">Réalisations</a></li>
+          <li><a class="menu__lien" href="#certifications">Certifications</a></li>
+          <li><a class="menu__lien" href="#veille">Veille</a></li>
+          <li><a class="menu__lien menu__lien--contact" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ======================================================
+         ACCUEIL : prénom et nom devant les lignes de code
+         ====================================================== -->
+    <section class="accueil" id="accueil">
+
+      <!-- Les lignes de code sont ajoutées ici par js/code-defilant.js -->
+      <div class="accueil__code" id="fond-code" aria-hidden="true"></div>
+
+      <div class="conteneur accueil__contenu">
+        <p class="accueil__invite">
+          <span class="accueil__invite-symbole">$</span> whoami<span class="accueil__curseur"></span>
+        </p>
+
+        <h1 class="accueil__nom">
+          <span class="accueil__prenom">Youwen</span>
+          <span class="accueil__nom-famille">Heitz</span>
+        </h1>
+
+        <p class="accueil__metier">Administration systèmes et réseaux</p>
+
+        <p class="accueil__resume">
+          Étudiant en BTS SIO option SISR au lycée Félix Le Dantec,
+          je recherche un stage en administration systèmes et réseaux.
+        </p>
+
+        <div class="accueil__actions">
+          <a class="bouton bouton--principal" href="#parcours">
+            Découvrir mon parcours
+            <span class="bouton__icone" aria-hidden="true">→</span>
+          </a>
+          <a class="bouton bouton--contour-clair" href="assets/documents/cv-youwen-heitz.pdf" download>
+            Télécharger mon CV
+            <span class="bouton__icone bouton__icone--bas" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================
+         À PROPOS : présentation
+         ====================================================== -->
+    <section class="section" id="a-propos">
+      <div class="conteneur">
+
+        <header class="section__entete a-reveler">
+          <p class="section__surtitre">Présentation</p>
+          <h2 class="section__titre">À propos</h2>
+        </header>
+
+        <div class="a-propos">
+
+          <div class="a-propos__texte a-reveler">
+            <p class="a-propos__accroche">
+              Sérieux dans mon travail, j'aime manipuler, bouger et je suis curieux.
+            </p>
+            <p>
+              Je me donne toujours à 100&nbsp;% dans mon travail pour qu'il soit le mieux possible.
+              Je mettrai toutes mes qualités au profit de votre entreprise pour vous aider au maximum.
+            </p>
+            <p>
+              Après un Bac Pro Systèmes Numériques, je poursuis en BTS SIO option SISR
+              (Solutions d'Infrastructures, Systèmes et Réseaux) au lycée Félix Le Dantec.
+              Mes expériences en entreprise, de Guingamp jusqu'à Rovaniemi en Finlande,
+              m'ont fait pratiquer la maintenance informatique, la création d'un serveur
+              de stockage et la configuration de NAS, de VPN et de pare-feu.
+            </p>
+            <a class="bouton bouton--contour" href="assets/documents/cv-youwen-heitz.pdf" download>
+              Télécharger mon CV (PDF)
+              <span class="bouton__icone bouton__icone--bas" aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <ul class="chiffres-cles a-reveler">
+            <li class="chiffre-cle">
+              <span class="chiffre-cle__nombre">5</span>
+              <span class="chiffre-cle__libelle">entreprises d'accueil</span>
+            </li>
+            <li class="chiffre-cle">
+              <span class="chiffre-cle__nombre">5</span>
+              <span class="chiffre-cle__libelle">certifications et MOOC</span>
+            </li>
+            <li class="chiffre-cle">
+              <span class="chiffre-cle__nombre">7</span>
+              <span class="chiffre-cle__libelle">langages pratiqués</span>
+            </li>
+            <li class="chiffre-cle">
+              <span class="chiffre-cle__nombre">1</span>
+              <span class="chiffre-cle__libelle">expérience à l'étranger, en Finlande</span>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         PARCOURS : formation et expériences professionnelles
+         ====================================================== -->
+    <section class="section section--surface" id="parcours">
+      <div class="conteneur">
+
+        <header class="section__entete a-reveler">
+          <p class="section__surtitre">Formation et expériences</p>
+          <h2 class="section__titre">Mon parcours</h2>
+        </header>
+
+        <div class="parcours">
+
+          <!-- Formation -->
+          <div class="parcours__colonne a-reveler">
+            <h3 class="parcours__titre">Formation</h3>
+            <ol class="frise frise--formation">
+              <li class="frise__element">
+                <p class="frise__date">Depuis septembre 2025</p>
+                <h4 class="frise__titre">BTS SIO option SISR</h4>
+                <p class="frise__lieu">Lycée Félix Le Dantec — Lannion</p>
+                <p class="frise__texte">
+                  Services Informatiques aux Organisations, option Solutions
+                  d'Infrastructures, Systèmes et Réseaux.
+                </p>
+              </li>
+              <li class="frise__element">
+                <p class="frise__date">Jusqu'en juin 2025</p>
+                <h4 class="frise__titre">Bac Pro Systèmes Numériques</h4>
+                <p class="frise__lieu">Lycée Félix Le Dantec — Lannion</p>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Expériences professionnelles -->
+          <div class="parcours__colonne a-reveler">
+            <h3 class="parcours__titre">Expériences professionnelles</h3>
+            <ol class="frise">
+              <li class="frise__element">
+                <p class="frise__date">Juin 2026</p>
+                <h4 class="frise__titre">Microtel</h4>
+                <p class="frise__lieu">Guingamp</p>
+                <ul class="frise__taches">
+                  <li>Assistance informatique pour personnes âgées</li>
+                </ul>
+              </li>
+              <li class="frise__element">
+                <p class="frise__date">Mai 2025</p>
+                <h4 class="frise__titre">Solinum Oy</h4>
+                <p class="frise__lieu">Rovaniemi, Finlande</p>
+                <ul class="frise__taches">
+                  <li>Création d'un serveur de stockage</li>
+                </ul>
+              </li>
+              <li class="frise__element">
+                <p class="frise__date">Avril 2024 · Juin 2024 · Mars 2025</p>
+                <h4 class="frise__titre">SC-Micro</h4>
+                <p class="frise__lieu">Guingamp</p>
+                <ul class="frise__taches">
+                  <li>Maintenance d'ordinateurs et d'imprimantes</li>
+                  <li>Configuration de NAS, de VPN et de pare-feu</li>
+                  <li>Maintenance informatique en tout genre</li>
+                </ul>
+              </li>
+              <li class="frise__element">
+                <p class="frise__date">Mai 2023</p>
+                <h4 class="frise__titre">Pulsat</h4>
+                <p class="frise__lieu">Ploumagoar</p>
+                <ul class="frise__taches">
+                  <li>Maintenance d'appareils électroménagers</li>
+                </ul>
+              </li>
+              <li class="frise__element">
+                <p class="frise__date">Décembre 2022</p>
+                <h4 class="frise__titre">QI Informatique</h4>
+                <p class="frise__lieu">Ploumagoar</p>
+                <ul class="frise__taches">
+                  <li>Configuration de PC</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         COMPÉTENCES : langages, logiciels, infrastructures
+         ====================================================== -->
+    <section class="section" id="competences">
+      <div class="conteneur">
+
+        <header class="section__entete a-reveler">
+          <p class="section__surtitre">Savoir-faire</p>
+          <h2 class="section__titre">Compétences</h2>
+          <p class="section__introduction">
+            Compétences en cours d'acquisition pendant ma formation et mes expériences en entreprise.
+          </p>
+        </header>
+
+        <div class="competences">
+
+          <!-- Langages -->
+          <article class="carte a-reveler">
+            <h3 class="competences__titre">Langages</h3>
+            <ul class="liste-etiquettes">
+              <li class="etiquette etiquette--violette">Bash</li>
+              <li class="etiquette etiquette--violette">Batch</li>
+              <li class="etiquette etiquette--violette">C#</li>
+              <li class="etiquette etiquette--violette">PHP</li>
+              <li class="etiquette etiquette--violette">HTML</li>
+              <li class="etiquette etiquette--violette">CSS</li>
+              <li class="etiquette etiquette--violette">SQL</li>
+            </ul>
+          </article>
+
+          <!-- Logiciels -->
+          <article class="carte a-reveler">
+            <h3 class="competences__titre">Logiciels</h3>
+
+            <div class="groupe-competences">
+              <h4 class="groupe-competences__titre">Services</h4>
+              <ul class="liste-etiquettes">
+                <li class="etiquette">Web</li>
+                <li class="etiquette">DHCP</li>
+                <li class="etiquette">DNS</li>
+                <li class="etiquette">AD</li>
+                <li class="etiquette">WSUS</li>
+                <li class="etiquette">FOG</li>
+                <li class="etiquette">PBS</li>
+                <li class="etiquette">GLPI</li>
+                <li class="etiquette">IPAM</li>
+                <li class="etiquette">Serveur de fichiers</li>
+                <li class="etiquette">Syslog</li>
+                <li class="etiquette">UFW</li>
+              </ul>
+            </div>
+
+            <div class="groupe-competences">
+              <h4 class="groupe-competences__titre">Systèmes</h4>
+              <ul class="liste-etiquettes">
+                <li class="etiquette">Windows</li>
+                <li class="etiquette">Linux</li>
+                <li class="etiquette">Windows Server</li>
+                <li class="etiquette">Cisco</li>
+              </ul>
+            </div>
+
+            <div class="groupe-competences">
+              <h4 class="groupe-competences__titre">Administration du matériel</h4>
+              <ul class="liste-etiquettes">
+                <li class="etiquette">Sécurisation des accès</li>
+                <li class="etiquette">Protocoles</li>
+                <li class="etiquette">Sauvegarde et restauration de machines</li>
+              </ul>
+            </div>
+
+            <div class="groupe-competences">
+              <h4 class="groupe-competences__titre">Virtualisation et stockage</h4>
+              <ul class="liste-etiquettes">
+                <li class="etiquette">Proxmox</li>
+                <li class="etiquette">VirtualBox</li>
+                <li class="etiquette">Conteneurs</li>
+                <li class="etiquette">RAID</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Infrastructures -->
+          <article class="carte a-reveler">
+            <h3 class="competences__titre">Infrastructures</h3>
+
+            <div class="groupe-competences">
+              <h4 class="groupe-competences__titre">Câblage</h4>
+              <ul class="liste-etiquettes">
+                <li class="etiquette">Installation sécurisée</li>
+                <li class="etiquette">Caractéristiques</li>
+                <li class="etiquette">Adaptation aux besoins</li>
+              </ul>
+            </div>
+
+            <div class="groupe-competences">
+              <h4 class="groupe-competences__titre">Matériel</h4>
+              <ul class="liste-etiquettes">
+                <li class="etiquette">Switch</li>
+                <li class="etiquette">Routeur</li>
+                <li class="etiquette">Pare-feu</li>
+                <li class="etiquette">NAS</li>
+                <li class="etiquette">Point d'accès Wi-Fi</li>
+                <li class="etiquette">SAN</li>
+              </ul>
+            </div>
+
+            <div class="groupe-competences">
+              <h4 class="groupe-competences__titre">Sécurisation</h4>
+              <ul class="liste-etiquettes">
+                <li class="etiquette">VLAN</li>
+                <li class="etiquette">SSH</li>
+                <li class="etiquette">HTTPS</li>
+                <li class="etiquette">SFTP</li>
+                <li class="etiquette">VPN</li>
+                <li class="etiquette">GPO</li>
+                <li class="etiquette">Pentesting avec Kali</li>
+                <li class="etiquette">Analyse de trames Wireshark</li>
+                <li class="etiquette">Filtrage web</li>
+                <li class="etiquette">ACL</li>
+              </ul>
+            </div>
+
+            <div class="groupe-competences">
+              <h4 class="groupe-competences__titre">Documentation</h4>
+              <ul class="liste-etiquettes">
+                <li class="etiquette">Markdown</li>
+                <li class="etiquette">GitHub</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Les six compétences évaluées à l'épreuve E5 -->
+        <aside class="bloc-epreuve a-reveler">
+          <p class="bloc-epreuve__surtitre">Épreuve E5 — BTS SIO</p>
+          <h3 class="bloc-epreuve__titre">Les six compétences du bloc 1</h3>
+          <p class="bloc-epreuve__texte">
+            « Support et mise à disposition de services informatiques » :
+            chaque réalisation présentée plus bas précise les compétences qu'elle mobilise.
+          </p>
+          <ol class="bloc-epreuve__liste">
+            <li class="bloc-epreuve__element">Gérer le patrimoine informatique</li>
+            <li class="bloc-epreuve__element">Répondre aux incidents et aux demandes d'assistance et d'évolution</li>
+            <li class="bloc-epreuve__element">Développer la présence en ligne de l'organisation</li>
+            <li class="bloc-epreuve__element">Travailler en mode projet</li>
+            <li class="bloc-epreuve__element">Mettre à disposition des utilisateurs un service informatique</li>
+            <li class="bloc-epreuve__element">Organiser son développement professionnel</li>
+          </ol>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         RÉALISATIONS : en entreprise et en classe
+         ====================================================== -->
+    <section class="section section--surface" id="realisations">
+      <div class="conteneur">
+
+        <header class="section__entete a-reveler">
+          <p class="section__surtitre">Projets</p>
+          <h2 class="section__titre">Réalisations</h2>
+        </header>
+
+        <!-- Réalisations professionnelles -->
+        <div class="realisations__groupe">
+          <h3 class="realisations__titre-groupe a-reveler">En entreprise</h3>
+
+          <div class="grille-cartes grille-cartes--trois">
+
+            <!-- À VÉRIFIER : les compétences mobilisées sont des propositions -->
+            <article class="carte realisation a-reveler">
+              <p class="realisation__type">Stage · Juin 2026</p>
+              <h4 class="realisation__titre">Assistance informatique pour personnes âgées</h4>
+              <p class="realisation__contexte">Microtel — Guingamp</p>
+              <p class="realisation__description">
+                Accompagnement et dépannage informatique auprès de personnes âgées.
+                <span class="badge-a-completer">Détails à compléter</span>
+              </p>
+              <div class="realisation__competences">
+                <p class="realisation__competences-titre">Compétences mobilisées</p>
+                <ul class="liste-etiquettes">
+                  <li class="etiquette etiquette--bleue">Répondre aux incidents et aux demandes d'assistance</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="carte realisation a-reveler">
+              <p class="realisation__type">Stage à l'étranger · Mai 2025</p>
+              <h4 class="realisation__titre">Création d'un serveur de stockage</h4>
+              <p class="realisation__contexte">Solinum Oy — Rovaniemi, Finlande</p>
+              <p class="realisation__description">
+                Mise en place d'un serveur de stockage pour l'entreprise.
+                <span class="badge-a-completer">Détails à compléter</span>
+              </p>
+              <div class="realisation__competences">
+                <p class="realisation__competences-titre">Compétences mobilisées</p>
+                <ul class="liste-etiquettes">
+                  <li class="etiquette etiquette--bleue">Mettre à disposition un service informatique</li>
+                  <li class="etiquette etiquette--bleue">Gérer le patrimoine informatique</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="carte realisation a-reveler">
+              <p class="realisation__type">Stage · 2024 – 2025</p>
+              <h4 class="realisation__titre">Configuration de NAS, de VPN et de pare-feu</h4>
+              <p class="realisation__contexte">SC-Micro — Guingamp</p>
+              <p class="realisation__description">
+                Configuration d'équipements réseau, maintenance d'ordinateurs et d'imprimantes.
+                <span class="badge-a-completer">Détails à compléter</span>
+              </p>
+              <div class="realisation__competences">
+                <p class="realisation__competences-titre">Compétences mobilisées</p>
+                <ul class="liste-etiquettes">
+                  <li class="etiquette etiquette--bleue">Mettre à disposition un service informatique</li>
+                  <li class="etiquette etiquette--bleue">Gérer le patrimoine informatique</li>
+                </ul>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Réalisations en classe -->
+        <div class="realisations__groupe">
+          <h3 class="realisations__titre-groupe a-reveler">En classe</h3>
+
+          <div class="grille-cartes grille-cartes--trois">
+
+            <!-- À COMPLÉTER : les trois projets ci-dessous sont des propositions
+                 tirées des compétences du CV. Remplace-les par tes vrais projets. -->
+            <article class="carte realisation a-reveler">
+              <p class="realisation__type">Projet en classe</p>
+              <h4 class="realisation__titre">Gestion de parc et d'incidents avec GLPI</h4>
+              <p class="realisation__contexte">BTS SIO — Lycée Félix Le Dantec</p>
+              <p class="realisation__description">
+                <span class="badge-a-completer">Proposition à confirmer</span>
+                Contexte, objectifs, étapes et résultat à rédiger.
+              </p>
+              <div class="realisation__competences">
+                <p class="realisation__competences-titre">Compétences mobilisées</p>
+                <ul class="liste-etiquettes">
+                  <li class="etiquette etiquette--bleue">Gérer le patrimoine informatique</li>
+                  <li class="etiquette etiquette--bleue">Répondre aux incidents et aux demandes d'assistance</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="carte realisation a-reveler">
+              <p class="realisation__type">Projet en classe</p>
+              <h4 class="realisation__titre">Annuaire Active Directory et stratégies de groupe</h4>
+              <p class="realisation__contexte">BTS SIO — Lycée Félix Le Dantec</p>
+              <p class="realisation__description">
+                <span class="badge-a-completer">Proposition à confirmer</span>
+                Contexte, objectifs, étapes et résultat à rédiger.
+              </p>
+              <div class="realisation__competences">
+                <p class="realisation__competences-titre">Compétences mobilisées</p>
+                <ul class="liste-etiquettes">
+                  <li class="etiquette etiquette--bleue">Mettre à disposition un service informatique</li>
+                  <li class="etiquette etiquette--bleue">Travailler en mode projet</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="carte realisation a-reveler">
+              <p class="realisation__type">Projet en classe</p>
+              <h4 class="realisation__titre">Sauvegarde et restauration avec Proxmox Backup Server</h4>
+              <p class="realisation__contexte">BTS SIO — Lycée Félix Le Dantec</p>
+              <p class="realisation__description">
+                <span class="badge-a-completer">Proposition à confirmer</span>
+                Contexte, objectifs, étapes et résultat à rédiger.
+              </p>
+              <div class="realisation__competences">
+                <p class="realisation__competences-titre">Compétences mobilisées</p>
+                <ul class="liste-etiquettes">
+                  <li class="etiquette etiquette--bleue">Gérer le patrimoine informatique</li>
+                  <li class="etiquette etiquette--bleue">Travailler en mode projet</li>
+                </ul>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CERTIFICATIONS
+         ====================================================== -->
+    <section class="section" id="certifications">
+      <div class="conteneur">
+
+        <header class="section__entete a-reveler">
+          <p class="section__surtitre">Formations en ligne</p>
+          <h2 class="section__titre">Certifications</h2>
+        </header>
+
+        <ul class="certifications a-reveler">
+          <li class="certification">
+            <span class="certification__organisme">CNIL</span>
+            <span class="certification__titre">Atelier RGPD</span>
+            <span class="etiquette">MOOC</span>
+          </li>
+          <li class="certification">
+            <span class="certification__organisme">ANSSI</span>
+            <span class="certification__titre">SecNumacadémie (SECNUM)</span>
+            <span class="etiquette">MOOC</span>
+          </li>
+          <li class="certification">
+            <span class="certification__organisme">Cisco</span>
+            <span class="certification__titre">Introduction à la cybersécurité</span>
+            <span class="etiquette">Formation</span>
+          </li>
+          <li class="certification">
+            <span class="certification__organisme">OpenClassrooms</span>
+            <span class="certification__titre">Administrer un système Linux</span>
+            <span class="etiquette">Formation</span>
+          </li>
+          <li class="certification">
+            <span class="certification__organisme">Root-Me</span>
+            <span class="certification__titre">Challenges de cybersécurité</span>
+            <span class="etiquette">CTF</span>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         VEILLE ET DOCUMENTS
+         ====================================================== -->
+    <section class="section section--surface" id="veille">
+      <div class="conteneur">
+
+        <header class="section__entete a-reveler">
+          <p class="section__surtitre">Développement professionnel</p>
+          <h2 class="section__titre">Veille et documents</h2>
+        </header>
+
+        <div class="grille-cartes grille-cartes--quatre">
+
+          <!-- À COMPLÉTER : sujet de veille, sources et outils -->
+          <article class="carte document a-reveler">
+            <h3 class="document__titre">Veille technologique</h3>
+            <p class="document__texte">
+              Cette rubrique présentera mon sujet de veille, mes sources
+              et les outils que j'utilise pour la suivre.
+            </p>
+            <span class="badge-a-completer document__action">Sujet à définir</span>
+          </article>
+
+          <article class="carte document a-reveler">
+            <h3 class="document__titre">Documentation personnelle</h3>
+            <p class="document__texte">
+              Mes procédures et notes techniques, rédigées en Markdown
+              et publiées sur GitHub.
+            </p>
+            <a class="bouton bouton--contour document__action" href="https://github.com/YouwenHTZ" target="_blank" rel="noopener">
+              Voir mon GitHub
+              <span class="bouton__icone" aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <!-- À COMPLÉTER : quand le tableau existe, place le fichier dans
+               assets/documents/ puis remplace le <span> ci-dessous par un lien
+               comme celui du CV. -->
+          <article class="carte document a-reveler">
+            <h3 class="document__titre">Tableau de synthèse</h3>
+            <p class="document__texte">
+              Le tableau qui récapitule mes réalisations et les compétences
+              du bloc 1 pour l'épreuve E5.
+            </p>
+            <span class="bouton bouton--inactif document__action">Bientôt disponible</span>
+          </article>
+
+          <article class="carte document a-reveler">
+            <h3 class="document__titre">Curriculum vitæ</h3>
+            <p class="document__texte">
+              Mon CV complet, à télécharger au format PDF.
+            </p>
+            <a class="bouton bouton--contour document__action" href="assets/documents/cv-youwen-heitz.pdf" download>
+              Télécharger le CV
+              <span class="bouton__icone bouton__icone--bas" aria-hidden="true">↓</span>
+            </a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CONTACT : bouton en bas du site
+         ====================================================== -->
+    <section class="contact" id="contact">
+      <div class="conteneur">
+        <div class="contact__contenu a-reveler">
+
+          <p class="section__surtitre section__surtitre--clair">Contact</p>
+          <h2 class="section__titre section__titre--clair">Me contacter</h2>
+
+          <p class="contact__texte">
+            Je recherche un stage en administration systèmes et réseaux.
+            Une question, une proposition&nbsp;? Écrivez-moi.
+          </p>
+
+          <a class="bouton bouton--principal bouton--grand" href="mailto:yheitz.ledantec@gmail.com?subject=Contact%20depuis%20le%20portfolio">
+            Me contacter par e-mail
+            <span class="bouton__icone" aria-hidden="true">→</span>
+          </a>
+
+          <p class="contact__adresse">
+            <span class="contact__adresse-texte">yheitz.ledantec@gmail.com</span>
+            <button class="contact__bouton-copie" id="bouton-copier-adresse" type="button" data-adresse="yheitz.ledantec@gmail.com">
+              Copier l'adresse
+            </button>
+          </p>
+
+          <ul class="contact__liens">
+            <li>
+              <a class="contact__lien" href="https://github.com/YouwenHTZ" target="_blank" rel="noopener">GitHub</a>
+            </li>
+            <!-- À COMPLÉTER : ajoute ici ton profil LinkedIn (réseau social professionnel)
+            <li>
+              <a class="contact__lien" href="https://www.linkedin.com/in/TON-PROFIL" target="_blank" rel="noopener">LinkedIn</a>
+            </li>
+            -->
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       PIED DE PAGE
+       ====================================================== -->
+  <footer class="pied-de-page">
+    <div class="conteneur pied-de-page__contenu">
+      <p class="pied-de-page__texte">© 2026 Youwen Heitz — Portfolio BTS SIO SISR</p>
+      <ul class="pied-de-page__liens">
+        <li><a class="pied-de-page__lien" href="mentions-legales.html">Mentions légales</a></li>
+        <li><a class="pied-de-page__lien" href="#accueil">Haut de page ↑</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+
+</html>

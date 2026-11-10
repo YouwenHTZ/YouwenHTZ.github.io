@@ -1,0 +1,195 @@
+/* ==========================================================================
+   BARRE DE NAVIGATION
+   Reste collée en haut de la page. Menu déroulant sur petit écran.
+   ========================================================================== */
+
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--hauteur-entete);
+  background-color: var(--fond-entete);
+  border-bottom: 1px solid var(--bordure-sur-sombre);
+  /* Effet de verre dépoli quand le contenu passe dessous */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+.entete__contenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+
+/* ---------- Logo ---------- */
+
+.entete__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--blanc);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.entete__logo:hover {
+  color: var(--blanc);
+}
+
+.entete__logo-initiales {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: var(--violet);
+  border-radius: var(--rayon);
+  font-family: var(--police-code);
+  font-size: 0.9375rem;
+}
+
+/* Lien de retour (page des mentions légales) */
+.entete__retour {
+  color: var(--gris-clair);
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.entete__retour:hover {
+  color: var(--blanc);
+}
+
+
+/* ---------- Liens du menu ---------- */
+
+.menu__liste {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu__lien {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid transparent;
+  color: var(--gris-clair);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition), border-color var(--transition), background-color var(--transition);
+}
+
+.menu__lien:hover {
+  color: var(--blanc);
+}
+
+/* Lien de la section affichée à l'écran (classe ajoutée par js/navigation.js) */
+.menu__lien--actif {
+  color: var(--blanc);
+  border-bottom-color: var(--violet-clair);
+}
+
+/* Le lien « Contact » ressemble à un bouton */
+.menu__lien--contact {
+  margin-left: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--violet);
+  border-bottom: 0;
+  border-radius: var(--rayon);
+  color: var(--blanc);
+}
+
+.menu__lien--contact:hover {
+  background-color: var(--violet-fonce);
+}
+
+
+/* ---------- Bouton du menu (visible seulement sur petit écran) ---------- */
+
+.entete__bouton-menu {
+  display: none;
+}
+
+
+/* ---------- Petit écran : menu déroulant ---------- */
+
+@media (max-width: 63.99rem) {
+  .entete__bouton-menu {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0 0.625rem;
+    background-color: transparent;
+    border: 1px solid var(--bordure-sur-sombre);
+    border-radius: var(--rayon);
+    cursor: pointer;
+  }
+
+  .entete__barre {
+    display: block;
+    height: 2px;
+    background-color: var(--blanc);
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  /* Les trois barres se transforment en croix quand le menu est ouvert */
+  .entete__bouton-menu--ouvert .entete__barre:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .entete__bouton-menu--ouvert .entete__barre:nth-child(2) {
+    opacity: 0;
+  }
+
+  .entete__bouton-menu--ouvert .entete__barre:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0.5rem var(--marge-page) 1.5rem;
+    background-color: var(--gris-tres-fonce);
+    border-bottom: 1px solid var(--bordure-sur-sombre);
+  }
+
+  /* Classe ajoutée par js/navigation.js */
+  .menu--ouvert {
+    display: block;
+  }
+
+  .menu__liste {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .menu__lien {
+    padding: 0.875rem 0.25rem;
+    border-bottom: 1px solid var(--bordure-sur-sombre);
+    font-size: 1.0625rem;
+  }
+
+  .menu__lien--actif {
+    color: var(--violet-clair);
+    border-bottom-color: var(--bordure-sur-sombre);
+  }
+
+  .menu__lien--contact {
+    margin: 1rem 0 0;
+    padding: 0.875rem 1rem;
+    text-align: center;
+    color: var(--blanc);
+  }
+}

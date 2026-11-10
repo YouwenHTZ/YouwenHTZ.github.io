@@ -1,0 +1,490 @@
+/* ==========================================================================
+   SECTIONS DU PORTFOLIO
+   À propos, parcours, compétences, réalisations, certifications,
+   veille et documents, contact, page des mentions légales
+   ========================================================================== */
+
+
+/* ---------- À propos ---------- */
+
+.a-propos {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+@media (min-width: 60rem) {
+  .a-propos {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+  }
+}
+
+.a-propos__accroche {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--gris-fonce);
+}
+
+.a-propos__texte .bouton {
+  margin-top: 1rem;
+}
+
+/* Chiffres clés : grand nombre + petite légende */
+.chiffres-cles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chiffre-cle {
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--violet);
+}
+
+.chiffre-cle:nth-child(even) {
+  border-left-color: var(--bleu);
+}
+
+.chiffre-cle__nombre {
+  display: block;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gris-fonce);
+}
+
+.chiffre-cle__libelle {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--gris-moyen);
+}
+
+
+/* ---------- Parcours : deux frises chronologiques ---------- */
+
+.parcours {
+  display: grid;
+  gap: 3.5rem;
+}
+
+@media (min-width: 60rem) {
+  .parcours {
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+  }
+}
+
+.parcours__titre {
+  margin: 0 0 2rem;
+  font-size: var(--taille-h3);
+}
+
+.frise {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: 1px solid var(--gris-bordure);
+}
+
+.frise__element {
+  position: relative;
+  padding: 0 0 2.5rem 2rem;
+}
+
+.frise__element:last-child {
+  padding-bottom: 0;
+}
+
+/* Petit carré posé sur la ligne de la frise */
+.frise__element::before {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  left: -5px;
+  width: 9px;
+  height: 9px;
+  background-color: var(--violet);
+  border-radius: 2px;
+}
+
+.frise__date {
+  margin: 0 0 0.375rem;
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.frise__titre {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.frise__lieu {
+  margin: 0.125rem 0 0.75rem;
+  font-size: 1rem;
+  color: var(--gris-moyen);
+}
+
+.frise__texte {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.frise__taches {
+  margin: 0;
+  padding-left: 1.125rem;
+  font-size: 1rem;
+  list-style-type: square;
+}
+
+.frise__taches li::marker {
+  color: var(--gris-clair);
+}
+
+/* La frise de la formation est en bleu, celle des expériences en violet */
+.frise--formation .frise__element::before {
+  background-color: var(--bleu);
+}
+
+.frise--formation .frise__date {
+  color: var(--bleu-fonce);
+}
+
+
+/* ---------- Compétences ---------- */
+
+.competences {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 64rem) {
+  .competences {
+    grid-template-columns: 0.7fr 1.15fr 1.15fr;
+    align-items: start;
+  }
+}
+
+.competences__titre {
+  margin: 0 0 1.5rem;
+  font-size: var(--taille-h3);
+}
+
+.groupe-competences + .groupe-competences {
+  margin-top: 1.5rem;
+}
+
+.groupe-competences__titre {
+  margin: 0 0 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--gris-moyen);
+}
+
+/* Panneau sombre : les six compétences du bloc 1 (épreuve E5) */
+.bloc-epreuve {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding: clamp(2rem, 4vw, 3.5rem);
+  background-color: var(--gris-tres-fonce);
+  border-radius: var(--rayon);
+  color: var(--gris-clair);
+}
+
+.bloc-epreuve__surtitre {
+  margin: 0 0 0.75rem;
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--violet-clair);
+}
+
+.bloc-epreuve__titre {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  color: var(--blanc);
+}
+
+.bloc-epreuve__texte {
+  max-width: 44rem;
+  margin: 1rem 0 0;
+  font-size: 1rem;
+}
+
+.bloc-epreuve__liste {
+  display: grid;
+  gap: 2rem 2.5rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: competence;
+}
+
+@media (min-width: 40rem) {
+  .bloc-epreuve__liste {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .bloc-epreuve__liste {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bloc-epreuve__element {
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--gris-ardoise);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--blanc);
+  counter-increment: competence;
+}
+
+/* Numéro automatique devant chaque compétence : 01, 02, 03… */
+.bloc-epreuve__element::before {
+  content: counter(competence, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.375rem;
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  font-weight: 400;
+  color: var(--bleu);
+}
+
+
+/* ---------- Réalisations ---------- */
+
+.realisations__groupe + .realisations__groupe {
+  margin-top: 4rem;
+}
+
+.realisations__titre-groupe {
+  margin: 0 0 1.5rem;
+  font-size: var(--taille-h3);
+}
+
+.realisation {
+  display: flex;
+  flex-direction: column;
+}
+
+.realisation__type {
+  margin: 0;
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.realisation__titre {
+  margin: 0.625rem 0 0.375rem;
+  font-size: 1.3125rem;
+  line-height: 1.25;
+}
+
+.realisation__contexte {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: var(--gris-moyen);
+}
+
+.realisation__description {
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+}
+
+/* Les compétences mobilisées restent collées en bas de la carte */
+.realisation__competences {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--gris-bordure);
+}
+
+.realisation__competences-titre {
+  margin: 0 0 0.625rem;
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gris-moyen);
+}
+
+
+/* ---------- Certifications : une ligne par certification ---------- */
+
+.certifications {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--gris-bordure);
+}
+
+.certification {
+  display: grid;
+  gap: 0.375rem;
+  justify-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--gris-bordure);
+}
+
+@media (min-width: 48rem) {
+  .certification {
+    grid-template-columns: 14rem 1fr auto;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.certification__organisme {
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.certification__titre {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: var(--gris-fonce);
+}
+
+
+/* ---------- Veille et documents ---------- */
+
+.document {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.document__titre {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.document__texte {
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+}
+
+/* Le bouton reste collé en bas de la carte */
+.document__action {
+  margin-top: auto;
+}
+
+
+/* ---------- Contact ---------- */
+
+.contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: var(--espace-section);
+  background-color: var(--gris-tres-fonce);
+  color: var(--gris-clair);
+}
+
+.contact__texte {
+  max-width: 34rem;
+  margin: 1.5rem 0 2.5rem;
+  font-size: var(--taille-texte-grand);
+  font-weight: 300;
+}
+
+.contact__adresse {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin: 1.5rem 0 0;
+  font-family: var(--police-code);
+  font-size: 1rem;
+  color: var(--blanc);
+}
+
+.contact__bouton-copie {
+  padding: 0.25rem 0.75rem;
+  background-color: transparent;
+  border: 1px solid var(--gris-ardoise);
+  border-radius: var(--rayon);
+  font-family: var(--police-code);
+  font-size: var(--taille-petit);
+  color: var(--gris-clair);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.contact__bouton-copie:hover {
+  border-color: var(--bleu);
+  color: var(--bleu);
+}
+
+.contact__liens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact__lien {
+  color: var(--bleu);
+}
+
+.contact__lien:hover {
+  color: var(--violet-clair);
+}
+
+/* Formes en biais à droite (grand écran seulement) */
+@media (min-width: 64rem) {
+  .contact__contenu {
+    max-width: 52%;
+  }
+
+  .contact::before,
+  .contact::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .contact::before {
+    background-color: var(--violet);
+    clip-path: polygon(80% 0, 100% 0, 100% 100%, 68% 100%);
+  }
+
+  .contact::after {
+    background-color: var(--bleu);
+    clip-path: polygon(77% 0, 78.5% 0, 66.5% 100%, 65% 100%);
+  }
+}
+
+
+/* ---------- Page de texte simple (mentions légales) ---------- */
+
+.page-texte {
+  padding-block: var(--espace-section);
+}
+
+.page-texte__contenu {
+  max-width: 46rem;
+}
+
+.page-texte__titre {
+  margin: 3rem 0 0.75rem;
+  font-size: var(--taille-h3);
+}
